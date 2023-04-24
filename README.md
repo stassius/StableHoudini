@@ -1,7 +1,7 @@
 # StableHoudini
 Stable Diffusion Houdini Toolset
 
-Made by Stanislav Demchenko (stassius) for EVR Systems.
+Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
 https://www.linkedin.com/in/stanislav-demchenko/
 
@@ -14,7 +14,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 
 ### Features:
 1. Automatic1111 in Houdini
-2. All main A1111 features, including TI, Loras, Hypernetworks, Face restoration, tiling, hires fix
+2. All main A1111 features, including TI, Loras, Hypernetworks, face restoration, tiling, hires fix
 4. ControlNet 1.1, whole set of preprocessors and models
 5. Animateable Image2Image alternative test
 6. Upscale
@@ -32,7 +32,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 1. SD Switch Model (PDG) - switch to any A1111 checkpoint
 2. SD Dream (PDG) - t2i, i2i, control net, all the A1111 features
 3. SD Prompt (PDG) - create and animate prompts
-4. SD Upscaler (PDG) - upscale an image with different neural networks
+4. SD Upscaler (PDG) - upscale an image with various neural networks
 5. Image Preview (PDG) - easily switch and save generation batches
 6. Image Process (PDG) - process images in COPs
 7. Depth map (Obj) - instant depth-map for ControlNet generation
