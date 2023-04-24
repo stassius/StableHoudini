@@ -1,6 +1,8 @@
 # StableHoudini
 Stable Diffusion Houdini Toolset
 
+Tested with A1111 and ControlNet version as of 25.04.2023 (april 2023).
+
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
 https://www.linkedin.com/in/stanislav-demchenko/
@@ -8,7 +10,6 @@ https://www.linkedin.com/in/stanislav-demchenko/
 https://evr.systems/
 
 https://user-images.githubusercontent.com/35260274/234114613-43e2b2a9-f4ed-4494-a304-6b9cd92c178e.mp4
-
 
 Professional set of Houdini digital assets for Stable Diffusion image processing.
 
