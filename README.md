@@ -1,7 +1,6 @@
-# StableHoudini
-Stable Diffusion Houdini Toolset
+# Stable Diffusion Houdini Toolset
 
-Tested with A1111 and ControlNet version as of 25.04.2023 (april 2023).
+*Tested with Automatic1111 and ControlNet version as of 25.04.2023 (april 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
@@ -41,5 +40,9 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 https://user-images.githubusercontent.com/35260274/234114730-d19e9615-332a-4c5e-89af-30ef44ca3742.mp4
 
 When use ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings. It's clearly a bug on the ControlNet extension API.
+
+
+https://user-images.githubusercontent.com/35260274/234129594-1405b0de-df7a-4395-b628-5a5bed728114.mp4
+
 
 
