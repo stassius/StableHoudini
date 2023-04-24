@@ -1,0 +1,7 @@
+/backup/
+/hda/backup/
+/Saved/
+/Generated/
+/render/
+*.gz
+*.obv
