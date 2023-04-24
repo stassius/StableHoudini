@@ -3,6 +3,9 @@ Stable Diffusion Houdini Toolset
 
 Made by Stanislav Demchenko (stassius) for EVR Systems.
 
+https://www.linkedin.com/in/stanislav-demchenko/
+
+https://evr.systems/
 
 https://user-images.githubusercontent.com/35260274/234114613-43e2b2a9-f4ed-4494-a304-6b9cd92c178e.mp4
 
