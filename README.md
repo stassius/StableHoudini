@@ -47,4 +47,5 @@ When use ControlNet in image2image, add as many ControlNets as there are set up 
 https://user-images.githubusercontent.com/35260274/234129594-1405b0de-df7a-4395-b628-5a5bed728114.mp4
 
 
-
+Video tutorial with english subs:
+https://www.youtube.com/watch?v=Un_b8cvzxcw
