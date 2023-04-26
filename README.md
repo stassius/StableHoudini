@@ -2,7 +2,7 @@
 
 Should work with Houdini 19.5 with Python 3+.
 
-*Tested with Automatic1111 and ControlNet version as of 25.04.2023 (april 2023).*
+*Tested with Automatic1111 and ControlNet version as of 26.04.2023 (april 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
