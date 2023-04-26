@@ -41,7 +41,10 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 
 *When use ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug on the ControlNet extension API.*
 
-Video tutorial with english subs:
+### Video tutorials:
+* English:
+https://www.youtube.com/watch?v=jCE1Dx_Q924
+* Russian:
 https://www.youtube.com/watch?v=Un_b8cvzxcw
 
 Additional demo videos:
