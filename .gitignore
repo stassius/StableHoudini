@@ -5,3 +5,8 @@
 /render/
 *.gz
 *.obv
+/.idea/
+*.swp
+/__pychache/
+*.pyc
+/presets/
