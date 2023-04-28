@@ -23,6 +23,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 7. Prompt from file, prompt animation
 8. Bulk processing in i2i, mask, i2i alt test, ControlNet
 9. Full PDG integration
+10. Bulk ControlNet preprocessing
 
 ### Installation
 1. Install Automatic1111
@@ -40,6 +41,7 @@ If you got errors, try to find them in this document: https://github.com/stassiu
 5. Image Preview (PDG) - easily switch and save generation batches
 6. Image Process (PDG) - process images in COPs
 7. Depth map (Obj) - instant depth-map for ControlNet generation
+8. SD Preprocessor (PDG) - get preprocessed images (depth, normal and other maps) from ControlNet
 
 *When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
 
@@ -54,3 +56,5 @@ Additional demo videos:
 https://user-images.githubusercontent.com/35260274/234114730-d19e9615-332a-4c5e-89af-30ef44ca3742.mp4
 
 https://user-images.githubusercontent.com/35260274/234129594-1405b0de-df7a-4395-b628-5a5bed728114.mp4
+
+Support me: https://www.donationalerts.com/r/houdinirus
