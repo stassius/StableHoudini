@@ -30,6 +30,8 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 3. Run A1111
 4. Install asset libraries from /hda/ and use assets inside Houdini
 
+If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
+
 ### Houdini Nodes included:
 1. SD Switch Model (PDG) - switch to any A1111 checkpoint
 2. SD Dream (PDG) - t2i, i2i, control net, all the A1111 features
@@ -39,13 +41,16 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 6. Image Process (PDG) - process images in COPs
 7. Depth map (Obj) - instant depth-map for ControlNet generation
 
+*When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
+
+### Video tutorials:
+* English:
+https://www.youtube.com/watch?v=jCE1Dx_Q924
+* Russian:
+https://www.youtube.com/watch?v=Un_b8cvzxcw
+
+Additional demo videos:
+
 https://user-images.githubusercontent.com/35260274/234114730-d19e9615-332a-4c5e-89af-30ef44ca3742.mp4
 
-When use ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings. It's clearly a bug on the ControlNet extension API.
-
-
 https://user-images.githubusercontent.com/35260274/234129594-1405b0de-df7a-4395-b628-5a5bed728114.mp4
-
-
-Video tutorial with english subs:
-https://www.youtube.com/watch?v=Un_b8cvzxcw
