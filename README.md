@@ -23,6 +23,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 7. Prompt from file, prompt animation
 8. Bulk processing in i2i, mask, i2i alt test, ControlNet
 9. Full PDG integration
+10. Bulk ControlNet preprocessing
 
 ### Installation
 1. Install Automatic1111
