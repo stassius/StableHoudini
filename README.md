@@ -40,6 +40,7 @@ If you got errors, try to find them in this document: https://github.com/stassiu
 5. Image Preview (PDG) - easily switch and save generation batches
 6. Image Process (PDG) - process images in COPs
 7. Depth map (Obj) - instant depth-map for ControlNet generation
+8. SD Preprocessor (PDG) - get preprocessed images (depth, normal and other maps) from ControlNet
 
 *When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
 
