@@ -1,8 +1,8 @@
 # Stable Diffusion Houdini Toolset
 
-Should work with Houdini 19.5 with Python 3+.
+Works with Houdini 19.5 with Python 3.9.
 
-*Tested with Automatic1111 and ControlNet version as of 26.04.2023 (april 2023).*
+*Tested with Automatic1111 and ControlNet version as of 30.04.2023 (april 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
