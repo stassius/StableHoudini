@@ -33,6 +33,11 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 
 If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
 
+### Recommended TOP Network parameters
+In localscheduler node:
+1. Scheduler/Slot count - Custom slot count=1
+2. Job params/Single - On
+
 ### Houdini Nodes included:
 1. SD Switch Model (PDG) - switch to any A1111 checkpoint
 2. SD Dream (PDG) - t2i, i2i, control net, all the A1111 features
