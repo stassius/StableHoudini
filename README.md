@@ -45,6 +45,7 @@ If you got errors, try to find them in this document: https://github.com/stassiu
 9. SD Png Info (PDG) - parses generation parameters stored in PNG-file and stores them in attributes for reuse.
 
 *When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
+This bug was fixed in A1111 update from 01.05.2023 (May the first).
 
 ### Video tutorials:
 * English:
