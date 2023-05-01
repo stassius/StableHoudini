@@ -28,7 +28,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 ### Installation
 1. Install Automatic1111
 2. Add --api command line key to the webui-user.bat
-3. Run A1111
+3. Run A1111 with webui-user.bat
 4. Install asset libraries from /hda/ and use assets inside Houdini
 
 If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
