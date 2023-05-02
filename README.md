@@ -30,6 +30,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 2. Add --api command line key to the webui-user.bat
 3. Run A1111 with webui-user.bat
 4. Install asset libraries from /hda/ and use assets inside Houdini
+5. Make sure the Python folder is located next to the top_stable_diffusion.hda file
 
 If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
 
