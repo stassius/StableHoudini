@@ -32,7 +32,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 3. Run A1111 with webui-user.bat
 4. Install asset libraries from /hda/ and use assets inside Houdini
 5. Make sure the Python folder is located next to the top_stable_diffusion.hda file
-6. After the first time you created an SD node, /hda/Config/config.ini file will be created. In it you can change the default URL and also turn on the http authorization. Restart Houdini for changes to take an effect.
+6. After the first time you created an SD node, /hda/Config/config.ini file will be created. In it you can change the default URL and also turn on http authorization for remote server if you use it. Restart Houdini for changes to take effect.
 
 If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
 
