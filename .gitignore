@@ -9,3 +9,4 @@
 *.obv
 testbed.hip
 *.pyc
+hda/Config/config.ini
