@@ -4,8 +4,8 @@
 /Generated/
 /render/
 /hda/Config/
+/DetectMap/
 *.gz
 *.obv
-/DetectMap/
 testbed.hip
 *.pyc
