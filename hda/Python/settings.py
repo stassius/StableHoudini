@@ -65,7 +65,7 @@ def WriteDefaulConfig(filename):
 
 def GetConfigValue(section, key):
     if not config.has_option(section, key):
-        print(f"Error! No config value for {section}/{key}")
+        print(f"Error! No config value for {section}/{key}. Delete config file and restart the project.")
         return None
     return config[section][key]
 
