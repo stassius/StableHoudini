@@ -1,7 +1,9 @@
-defaultURL = "http://127.0.0.1:7860"
-username = ""
-password = ""
-timeout = 1
+import configparser
+import hou    
+import os  
+from pathlib import Path
+from os.path import exists  
+
 listConfig = {
     'models': { 
                 'url': '/sdapi/v1/sd-models', 
@@ -42,3 +44,33 @@ availableItems = {
     'cn_models' : [],
     'cn_preprocessors' : [],
 }
+
+config = configparser.ConfigParser()
+
+def WriteDefaulConfig(filename):
+    config = configparser.ConfigParser()
+    config['Main'] = {
+        'url' : 'http://127.0.0.1:7860',
+        'timeout' : 1.2,
+        }
+    config['Authorization'] = {
+        'useauth' : False,
+        'username' : '',
+        'password' : ''
+    }
+    Path(os.path.dirname(filename)).mkdir(parents=True, exist_ok=True)
+    print("Writing defaul config to "+filename)
+    with open(filename, 'w') as file:
+        config.write(file)
+
+def GetConfigValue(section, key):
+    if not config.has_option(section, key):
+        print(f"Error! No config value for {section}/{key}")
+        return None
+    return config[section][key]
+
+
+configfile = os.path.dirname(hou.nodeType('Top/Stable_Diffusion_Dream').definition().libraryFilePath())+"/Config/config.ini"
+if not exists(configfile):
+    WriteDefaulConfig(configfile)
+config.read(configfile)
