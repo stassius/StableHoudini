@@ -7,8 +7,16 @@ assignees: ''
 
 ---
 
+Before filling the bug-report:
+1. Make sure you added --api key to the webui-user.bat
+2. Make sure you launched Automatic1111 with webui-user.bat
+3. Check if Houdini is not blocked in your firewall
+4. Make sure you're using the right default URL in config.ini
+5. Check if the Automatic1111 is working in browser
+6. Try to find your error in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
+
 **Describe the bug**
-A clear and concise description of what the bug is.
+A clear and concise description of what the bug is. 
 
 **To Reproduce**
 Steps to reproduce the behavior:
