@@ -2,13 +2,16 @@
 
 Works with Houdini 19.5 with Python 3.9.
 
-*Tested with Automatic1111 and ControlNet version as of 02.05.2023 (may 2023).*
+*Tested with Automatic1111 and ControlNet version as of 07.05.2023 (may 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
 https://www.linkedin.com/in/stanislav-demchenko/
 
 https://evr.systems/
+
+Our Discord:
+https://discord.gg/bfdzAWQwct
 
 https://user-images.githubusercontent.com/35260274/234114613-43e2b2a9-f4ed-4494-a304-6b9cd92c178e.mp4
 
@@ -24,6 +27,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 8. Bulk processing in i2i, mask, i2i alt test, ControlNet
 9. Full PDG integration
 10. Bulk ControlNet preprocessing
+11. Work on a remote server with http authorization
 
 ### Installation
 1. Install Automatic1111
@@ -31,6 +35,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 3. Run A1111 with webui-user.bat
 4. Install asset libraries from /hda/ and use assets inside Houdini
 5. Make sure the Python folder is located next to the top_stable_diffusion.hda file
+6. After the first time you created an SD node, /hda/Config/config.ini file will be created. In it you can change the default URL and also turn on http authorization for remote server if you use it. Restart Houdini for changes to take effect.
 
 If you got errors, try to find them in this document: https://github.com/stassius/StableHoudini/wiki/Common-Errors
 

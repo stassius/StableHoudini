@@ -59,7 +59,7 @@ def WriteDefaulConfig(filename):
         'password' : ''
     }
     Path(os.path.dirname(filename)).mkdir(parents=True, exist_ok=True)
-    print("Writing defaul config to "+filename)
+    print("Writing default config to "+filename)
     with open(filename, 'w') as file:
         config.write(file)
 
