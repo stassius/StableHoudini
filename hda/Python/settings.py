@@ -25,6 +25,10 @@ listConfig = {
                 'url': '/sdapi/v1/hypernetworks', 
                 'jsonitem' : '',
                 'jsonname' : 'name'},
+    'loras': { 
+                'url': '/sdapi/v1/loras', 
+                'jsonitem' : '',
+                'jsonname' : 'name'},
     'cn_models': { 
                 'url': '/controlnet/model_list', 
                 'jsonitem' : 'model_list',
@@ -41,6 +45,7 @@ availableItems = {
     'upscalers' : [],
     'embeddings' : [],
     'hypernetworks' : [],
+    'loras' : [],
     'cn_models' : [],
     'cn_preprocessors' : [],
 }
