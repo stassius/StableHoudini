@@ -55,6 +55,7 @@ In localscheduler node:
 8. SD Preprocessor (PDG) - get preprocessed images (depth, normal and other maps) from ControlNet
 9. SD Png Info (PDG) - parses generation parameters stored in PNG-file and stores them in attributes for reuse.
 10. SD Set Option (PDG) - lets you set any A1111 option. You can find the internal name of the option and its type in config.json file in A1111 folder.
+11. SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111.
 
 *When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
 This bug was fixed in A1111 update from 01.05.2023 (May the first).
