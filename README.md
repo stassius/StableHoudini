@@ -2,7 +2,7 @@
 
 Works with Houdini 19.5 with Python 3.9.
 
-*Tested with Automatic1111 and ControlNet version as of 20.05.2023 (may 2023).*
+*Tested with Automatic1111 and ControlNet version as of 22.05.2023 (may 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
@@ -41,8 +41,8 @@ If you got errors, try to find them in this document: https://github.com/stassiu
 
 ### Recommended TOP Network parameters
 In localscheduler node:
-1. Scheduler/Slot count - Custom slot count=1
-2. Job params/Single - On
+- Scheduler/Slot count - Custom slot count=1
+- Job params/Single - On
 
 ### Houdini Nodes included:
 1. SD Switch Model (PDG) - switch to any A1111 checkpoint
@@ -57,16 +57,13 @@ In localscheduler node:
 10. SD Set Option (PDG) - lets you set any A1111 option. You can find the internal name of the option and its type in config.json file in A1111 folder.
 11. SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111.
 
-*When you're using ControlNet in image2image, add as many ControlNets as there are set up in the A1111 settings due to a bug in the ControlNet extension API.*
-This bug was fixed in A1111 update from 01.05.2023 (May the first).
-
 ### Video tutorials:
 * English:
 https://www.youtube.com/watch?v=jCE1Dx_Q924
 * Russian:
 https://www.youtube.com/watch?v=Un_b8cvzxcw
 
-Additional demo videos:
+### Additional demo videos:
 
 https://user-images.githubusercontent.com/35260274/234114730-d19e9615-332a-4c5e-89af-30ef44ca3742.mp4
 
