@@ -1,0 +1,113 @@
+{
+    "script_name" : "ultimate sd upscale",
+    "script_info" : "Only works in Image2image mode. Use it with the Tile ControlNet to upscale images on a low-end GPU.",
+    "parms" : [
+        {
+        "name" : "tile_width",
+        "displayName" : "Tile width",
+        "type" : "int",
+        "default" : 512
+        },
+        {
+        "name" : "tile_height",
+        "displayName" : "Tile height",
+        "type" : "int",
+        "default" : 512
+        },
+        {
+        "name" : "mask_blur",
+        "displayName" : "Mask blur",
+        "type" : "int",
+        "default" : 8
+        },
+        {
+        "name" : "padding",
+        "displayName" : "Padding",
+        "type" : "int",
+        "default" : 32
+        },
+        {
+        "name" : "seams_fix_width",
+        "displayName" : "Seam fix width",
+        "type" : "int",
+        "default" : 64
+        },
+        {
+        "name" : "seams_fix_denoise",
+        "displayName" : "Seam fix denoise",
+        "type" : "float",
+        "default" : 0.35,
+        "help": "Only works with Seam fix"
+        },
+        {
+        "name" : "seams_fix_padding",
+        "displayName" : "Seam fix padding",
+        "type" : "int",
+        "default" : 32
+        },
+        {
+        "name" : "upscaler_index",
+        "displayName" : "Upscaler",
+        "type" : "intMenu",
+        "values" : ["None", "Lanczos", "Nearest", "ESRGAN_4x", "LDSR", "R-ESRGAN 4x+", "R-ESRGAN 4x+ Anime6B", "ScuNET", "SceNET PSNR", "SwinIR 4x"],
+        "default" : 0
+        },
+        {
+        "name" : "save_upscaled_image",
+        "displayName" : "Save upscaled image",
+        "type" : "bool",
+        "default" : false
+        },
+        {
+        "name" : "redraw_mode",
+        "displayName" : "Type",
+        "type" : "intMenu",
+        "values" : ["Linear", "Chess", "None"],
+        "default" : 0
+        },
+        {
+        "name" : "save_seams_fix_image",
+        "displayName" : "Save seam fix image",
+        "type" : "bool",
+        "default" : false
+        },
+        {
+        "name" : "seams_fix_mask_blur",
+        "displayName" : "Seam fix mask blur",
+        "type" : "int",
+        "default" : 8
+        },
+        {
+        "name" : "seams_fix_type",
+        "displayName" : "Seams fix type",
+        "type" : "intMenu",
+        "values" : ["None", "Band pass", "Half tile offset pass", "Half tile offset pass + intersection"],
+        "default" : 0
+        },
+        {
+        "name" : "target_size_type",
+        "displayName" : "Target size type",
+        "type" : "intMenu",
+        "values" : ["From image2image", "Custom size", "Scale from image size"],
+        "default" : 0
+        },
+        {
+        "name" : "custom_width",
+        "displayName" : "Custom width",
+        "type" : "int",
+        "default" : 2048
+        },
+        {
+        "name" : "custom_height",
+        "displayName" : "Custom height",
+        "type" : "int",
+        "default" : 2048
+        },
+        {
+        "name" : "custom_scale",
+        "displayName" : "Custom scale",
+        "type" : "float",
+        "default" : 2.0
+        }
+    ]
+}
