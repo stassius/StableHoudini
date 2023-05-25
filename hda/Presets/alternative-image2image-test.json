@@ -1,0 +1,86 @@
+{
+    "script_name" : "img2img alternative test",
+    "script_info" : "Only works in Image2image mode. CFG Scale should be 2 or lower.",
+    "url" : "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#img2img-alternative-test",
+    "parms" : [
+        {
+        "name" : "override_sampler",
+        "displayName" : "Override sampler",
+        "type" : "bool",
+        "default" : true,
+        "group" : "General",
+        "help" : "Override 'Sampling method' to Euler. This method is built for it."
+        },
+        {
+        "name" : "override_prompt",
+        "displayName" : "Override prompt",
+        "type" : "bool",
+        "default" : false,
+        "group" : "General",
+        "help" : "Override 'prompt' and 'negative prompt' to the same values as 'original prompt' and 'original negative prompt'."
+        },
+        {
+        "name" : "original_prompt",
+        "displayName" : "Original prompt",
+        "type" : "string",
+        "default" : "",
+        "group" : "Prompts"
+        },
+        {
+        "name" : "original_negative_prompt",
+        "displayName" : "Original negative prompt",
+        "type" : "string",
+        "default" : "",
+        "group" : "Prompts"
+        },
+        {
+        "name" : "override_steps",
+        "displayName" : "Override steps",
+        "type" : "bool",
+        "default" : true,
+        "help" : "Override 'Sampling Steps' to the same value as 'Decode steps'",
+        "group" : "General"
+        },
+        {
+        "name" : "st",
+        "displayName" : "Decode steps",
+        "type" : "int",
+        "default" : 50,
+        "range" : [1, 150],
+        "help" : "Number of steps for image decoding. Should be the same as 'Sampling Steps'",
+        "group" : "General"
+        },
+        {
+        "name" : "override_strength",
+        "displayName" : "Override denoising strength to 1",
+        "type" : "bool",
+        "default" : true,
+        "group" : "General"
+        },
+        {
+        "name" : "cfg",
+        "displayName" : "Decode CFG scale",
+        "type" : "float",
+        "default" : 1.0,
+        "range" : [0.0, 15.0],
+        "group" : "General"
+        },
+        {
+        "name" : "randomness",
+        "displayName" : "Randomness",
+        "type" : "float",
+        "default" : 0.0,
+        "range" : [0.0, 1.0],
+        "help" : "Adds randomness. When set to 0, all the generations will be the same.",
+        "group" : "General"
+        },
+        {
+        "name" : "sigma_adjustment",
+        "displayName" : "Sigma adjustment for finding noise for image",
+        "type" : "bool",
+        "default" : false,
+        "help" : "Turn it on for better color matching.",
+        "group" : "General"
+        }
+    ]
+}
