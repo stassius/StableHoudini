@@ -90,7 +90,7 @@
         "values" : ["Linear", "Chess", "None"],
         "default" : 0,
         "group" : "General",
-        "help" : "Linear - All tiles processed one by one. column by column, row by row. Chess - All tiles are processed in a checkerboard pattern. Reduces the chance of seam artifacts. None - Disabled redraw. Use it when run generation without seam fix, see visible overlays or artifacts on seams and want to run just seam pass. Don't forget to put upscaled image as the source before."
+        "help" : "Linear - All tiles processed one by one, column by column, row by row. Chess - All tiles are processed in a checkerboard pattern. Reduces the chance of seam artifacts. None - Disabled redraw. Use it when run generation without seam fix, see visible overlays or artifacts on seams and want to run just seam pass. Don't forget to put upscaled image as the source before."
         },
         {
         "name" : "save_seams_fix_image",
