@@ -28,18 +28,19 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 9. Full PDG integration
 10. Bulk ControlNet preprocessing
 11. Work on a remote server with http authorization
+12. Use A1111 scripts like Ultimate SD Upscale right from Houdini
 
 ### Installation
 1. Install Automatic1111
 2. Add --api command line key to the webui-user.bat
 3. Run A1111 with webui-user.bat
 4. Install asset libraries from /hda/ and use assets inside Houdini
-5. Make sure the Python folder is located next to the top_stable_diffusion.hda file
+5. Make sure the Python and Presets folders are located next to the top_stable_diffusion.hda file
 6. After the first time you created an SD node, /hda/Config/config.ini file will be created. In it you can change the default URL and also turn on http authorization for remote server if you use it. Also, if you work locally, put 0.15 to the Timeout property, it will speed up starting a project when Automatic is not loaded. Restart Houdini for changes to take effect.
 
 If you got problems running Stable Houdini, there is a troubleshooting guide: https://github.com/stassius/StableHoudini/wiki/Troubleshooting-checklist
 
-### Recommended TOP Network parameters
+### Recommended TOP Network settings
 In localscheduler node:
 - Scheduler/Slot count - Custom slot count=1
 - Job params/Single - On
@@ -56,6 +57,8 @@ In localscheduler node:
 9. SD Png Info (PDG) - parses generation parameters stored in PNG-file and stores them in attributes for reuse.
 10. SD Set Option (PDG) - lets you set any A1111 option. You can find the internal name of the option and its type in config.json file in A1111 folder.
 11. SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111.
+12. SD Script (PDG) - lets you use A1111 scripts in t2i and i2i modes. Add it before the SD Dream node.
+13. COP Processor (PDG) - lets you add your own image processing. Dive inside this node and add any COP nodes between Input and Output. Your image will be processed and rendered.
 
 ### Video tutorials:
 * English:
