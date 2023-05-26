@@ -1,0 +1,157 @@
+{
+    "script_name" : "ultimate sd upscale",
+    "script_info" : "Only works in Image2image mode. Use it with the Tile ControlNet to upscale images on a low-end GPU.",
+    "url" : "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111",
+    "parms" : [
+        {
+        "name" : "tile_width",
+        "displayName" : "Tile width",
+        "type" : "int",
+        "default" : 512,
+        "range" : [256, 1024],
+        "group" : "General",
+        "help" : "The width of the tile to be processed. The larger the tile, the less artifacts will be in the final image. For 2k 512px is usually enough."
+        },
+        {
+        "name" : "tile_height",
+        "displayName" : "Tile height",
+        "type" : "int",
+        "default" : 512,
+        "range" : [256, 1024],
+        "group" : "General",
+        "help" : "The height of the tile to be processed. The larger the tile, the less artifacts will be in the final image. For 2k 512px is usually enough."
+
+        },
+        {
+        "name" : "mask_blur",
+        "displayName" : "Mask blur",
+        "type" : "int",
+        "default" : 8,
+        "range" : [0, 64],
+        "group" : "General",
+        "help" : "It is blur of masks used in tile masking. Set it to 12-16 on 512-768px tile size. Increase if you see seams."
+        },
+        {
+        "name" : "padding",
+        "displayName" : "Padding",
+        "type" : "int",
+        "default" : 32,
+        "range" : [0, 128],
+        "group" : "General",
+        "help" : "How many pixels of neighboring tiles will be taken into account when processing a tile."
+        },
+        {
+        "name" : "seams_fix_width",
+        "displayName" : "Seam fix width",
+        "type" : "int",
+        "default" : 64,
+        "range" : [0, 128],
+        "group" : "Seams fix",
+        "help" : "Redraw line width. Used only in 'Band pass' mode"
+        },
+        {
+        "name" : "seams_fix_denoise",
+        "displayName" : "Seam fix denoise",
+        "type" : "float",
+        "default" : 0.35,
+        "range" : [0.0, 1.0],
+        "help": "Denoise strength for seams fix.",
+        "group" : "Seams fix"
+        },
+        {
+        "name" : "seams_fix_padding",
+        "displayName" : "Seam fix padding",
+        "type" : "int",
+        "default" : 32,
+        "range" : [0, 128],
+        "help": "How many pixels of image near seam will be taken into account when processing a tile.",
+        "group" : "Seams fix"
+        },
+        {
+        "name" : "upscaler_index",
+        "displayName" : "Upscaler",
+        "type" : "intMenu",
+        "values" : ["None", "Lanczos", "Nearest", "ESRGAN_4x", "LDSR", "R-ESRGAN 4x+", "R-ESRGAN 4x+ Anime6B", "ScuNET", "ScuNET PSNR", "SwinIR 4x"],
+        "default" : 0,
+        "help": "Upscale the image before redrawing. Our recommendation - ESRGAN for photorealistic images, R-ESRGAN 4x+ for others.",
+        "group" : "General"
+        },
+        {
+        "name" : "save_upscaled_image",
+        "displayName" : "Save upscaled image",
+        "type" : "bool",
+        "default" : true,
+        "group" : "General"
+        },
+        {
+        "name" : "redraw_mode",
+        "displayName" : "Type",
+        "type" : "intMenu",
+        "values" : ["Linear", "Chess", "None"],
+        "default" : 0,
+        "group" : "General",
+        "help" : "Linear - All tiles processed one by one, column by column, row by row. Chess - All tiles are processed in a checkerboard pattern. Reduces the chance of seam artifacts. None - Disabled redraw. Use it when run generation without seam fix, see visible overlays or artifacts on seams and want to run just seam pass. Don't forget to put upscaled image as the source before."
+        },
+        {
+        "name" : "save_seams_fix_image",
+        "displayName" : "Save seam fix image",
+        "type" : "bool",
+        "default" : false,
+        "group" : "General"
+        },
+        {
+        "name" : "seams_fix_mask_blur",
+        "displayName" : "Seam fix mask blur",
+        "type" : "int",
+        "default" : 8,
+        "range" : [0, 64],
+        "group" : "Seams fix",
+        "help" : "It is blur of masks used in tile masking. Set it to 8-16 on 32px padding. Increase when increasing padding."
+        },
+        {
+        "name" : "seams_fix_type",
+        "displayName" : "Seams fix type",
+        "type" : "intMenu",
+        "values" : ["None", "Band pass", "Half tile offset pass", "Half tile offset pass + intersection"],
+        "default" : 0,
+        "help" : "Do not use it if the image has no visible grid, it adds another redraw pass.",
+        "group" : "Seams fix"
+        },
+        {
+        "name" : "target_size_type",
+        "displayName" : "Target size type",
+        "type" : "intMenu",
+        "values" : ["From image2image", "Custom size", "Scale from image size"],
+        "default" : 0,
+        "group" : "Target size",
+        "help" : "When set to 'From image2image', it will use the size from SD Dream node."
+        },
+        {
+        "name" : "custom_width",
+        "displayName" : "Custom width",
+        "type" : "int",
+        "default" : 2048,
+        "range" : [1024, 8192],
+        "group" : "Target size",
+        "help" : "Used when target_size_type is 'Cusrom size'"
+        },
+        {
+        "name" : "custom_height",
+        "displayName" : "Custom height",
+        "type" : "int",
+        "default" : 2048,
+        "range" : [1024, 8192],
+        "group" : "Target size",
+        "help" : "Used when target_size_type is 'Cusrom size'"
+        },
+        {
+        "name" : "custom_scale",
+        "displayName" : "Custom scale",
+        "type" : "float",
+        "default" : 2.0,
+        "range" : [1.0, 10.0],
+        "group" : "Target size",
+        "help" : "Used when target_size_type is 'Scale from image size'"
+        }
+    ]
+}
