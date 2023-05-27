@@ -1,0 +1,48 @@
+{
+    "script_name" : "abg remover",
+    "script_info" : "Removes background. Works best with stylized images.",
+    "url" : "https://github.com/KutsuyaYuki/ABG_extension",
+    "expects_info_parameter" : false,
+    "parms" : [
+        {
+        "name" : "only_save_background_free_pictures",
+        "displayName" : "Only save background free pictures",
+        "type" : "bool",
+        "default" : true,
+        "group" : "General",
+        "help" : "Only return background free pictures. Use this option.",
+        "hidden" : true
+        },
+        {
+        "name" : "do_not_auto_save",
+        "displayName" : "Do not autosave",
+        "type" : "bool",
+        "default" : false,
+        "group" : "General",
+        "hidden" : true
+        },
+        {
+        "name" : "custom_background",
+        "displayName" : "Custom background",
+        "type" : "bool",
+        "default" : false,
+        "group" : "General",
+        "hidden" : true
+        },
+        {
+        "name" : "custom_background_color",
+        "displayName" : "Custom background color",
+        "type" : "string",
+        "default" : "ff0000",
+        "group" : "General",
+        "hidden" : true
+        },
+        {
+        "name" : "custom_background_random",
+        "displayName" : "Fill Alpha with random color",
+        "type" : "bool",
+        "default" : false,
+        "group" : "General"
+        }
+    ]
+}

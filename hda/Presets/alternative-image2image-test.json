@@ -2,6 +2,7 @@
     "script_name" : "img2img alternative test",
     "script_info" : "Only works in Image2image mode. CFG Scale should be 2 or lower.",
     "url" : "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#img2img-alternative-test",
+    "expects_info_parameter" : true,
     "parms" : [
         {
         "name" : "override_sampler",
