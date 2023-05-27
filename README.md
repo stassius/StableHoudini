@@ -2,7 +2,7 @@
 
 Works with Houdini 19.5 with Python 3.9.
 
-*Tested with Automatic1111 and ControlNet version as of 26.05.2023 (may 2023).*
+*Tested with Automatic1111 and ControlNet version as of 27.05.2023 (may 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
@@ -59,6 +59,10 @@ In localscheduler node:
 11. SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111.
 12. SD Script (PDG) - lets you use A1111 scripts in t2i and i2i modes. Add it before the SD Dream node.
 13. COP Processor (PDG) - lets you add your own image processing. Dive inside this node and add any COP nodes between Input and Output. Your image will be processed and rendered.
+
+### Documentation
+Our wiki is full of valuable information:
+https://github.com/stassius/StableHoudini/wiki
 
 ### Video tutorials:
 * English:
