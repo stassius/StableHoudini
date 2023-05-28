@@ -25,6 +25,7 @@
         "displayName" : "Original prompt",
         "type" : "string",
         "default" : "",
+        "multiline" : true,
         "group" : "Prompts"
         },
         {
@@ -32,6 +33,7 @@
         "displayName" : "Original negative prompt",
         "type" : "string",
         "default" : "",
+        "multiline" : true,
         "group" : "Prompts"
         },
         {
