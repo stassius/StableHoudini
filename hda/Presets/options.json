@@ -1,0 +1,18 @@
+[
+    {
+    "option_name" : "CLIP_stop_at_last_layers",
+    "option_display_name" : "CLIP skip",
+    "option_type" : "int",
+    "option_range" : [1, 12]
+    },
+    {
+    "option_name" : "sd_vae",
+    "option_display_name" : "VAE",
+    "option_type" : "string"
+    },
+    {
+    "option_name" : "img2img_color_correction",
+    "option_display_name" : "Image2Image color correction",
+    "option_type" : "bool"
+    }
+]
