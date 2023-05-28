@@ -14,5 +14,11 @@
     "option_name" : "img2img_color_correction",
     "option_display_name" : "Image2Image color correction",
     "option_type" : "bool"
+    },
+    {
+    "option_name" : "interrogate_keep_models_in_memory",
+    "option_display_name" : "Keep interrogation model in memory",
+    "option_type" : "bool"
     }
+
 ]
