@@ -5,6 +5,7 @@
 /render/
 /hda/Config/
 /DetectMap/
+/images/
 *.gz
 *.obv
 testbed.hip
