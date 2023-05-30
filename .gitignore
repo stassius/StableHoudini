@@ -6,6 +6,7 @@
 /hda/Config/
 /DetectMap/
 /images/
+/Datasets/
 *.gz
 *.obv
 testbed.hip
