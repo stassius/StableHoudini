@@ -9,7 +9,9 @@ process = None
 stop = False
 
 if not kohya_dir:
-    print('Error! Kohya folder is not set in hda/Config/config.ini! Delete config file and restart the project.')
+    print('Adding default Kohya folder to hda/Config/config.ini')
+    print('Please, change it to the real kohya_ss location and restart the project.')
+    sth_settings.SetConfigValue('Training', 'kohya_folder', 'C:/kohya_ss/')
 
 
 def CallKohya(script_name, source_folder, network_module, num_cpus, parms):

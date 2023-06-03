@@ -51,6 +51,7 @@ availableItems = {
 }
 
 config = configparser.ConfigParser()
+configfile = os.path.dirname(hou.nodeType('Top/Stable_Diffusion_Dream').definition().libraryFilePath())+"/Config/config.ini"
 
 def WriteDefaulConfig(filename):
     config = configparser.ConfigParser()
@@ -73,12 +74,18 @@ def WriteDefaulConfig(filename):
 
 def GetConfigValue(section, key):
     if not config.has_option(section, key):
-        print(f"Error! No config value for {section}/{key}. Delete config file and restart the project.")
+        print(f"Error! No config value for {section}/{key}.")
         return None
     return config[section][key]
 
+def SetConfigValue(section, key, value):
+    if not config.has_section(section):
+        config.add_section(section)
+    config.set(section, key, value)
+    with open(configfile, 'w') as file:
+        config.write(file)
 
-configfile = os.path.dirname(hou.nodeType('Top/Stable_Diffusion_Dream').definition().libraryFilePath())+"/Config/config.ini"
+
 if not exists(configfile):
     WriteDefaulConfig(configfile)
 config.read(configfile)
