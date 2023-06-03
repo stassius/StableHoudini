@@ -49,16 +49,16 @@ In localscheduler node:
 - Generation
   - SD Dream (PDG) - t2i, i2i, control net, all the A1111 features
   - SD Preprocessor (PDG) - get preprocessed images (depth, normal and other maps) from ControlNet
-  - SD Upscaler (PDG) - upscale an image with various neural networks
+  - SD Upscale (PDG) - upscale an image with various neural networks
   - SD Script (PDG) - lets you use A1111 scripts in t2i and i2i modes. Add it before the SD Dream node.
   - SD Png Info (PDG) - parses generation parameters stored in PNG-file and stores them in attributes for reuse.
   - Depth map (Obj) - instant depth-map for ControlNet generation
 - Prompts
   - SD Prompt (PDG) - create and animate prompts
-  - SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111.
+  - SD Interrogate (PDG) - takes an image and generates a prompt for it. Works like the CLIP Interrogation feature of A1111. Can be used for BLIP captioning.
 - Settings
   - SD Switch Model (PDG) - switch to any A1111 checkpoint
-  - SD Set Option (PDG) - lets you set any A1111 option. You can find the internal name of the option and its type in config.json file in A1111 folder.
+  - SD Set Option (PDG) - lets you set an A1111 internal option.
 - Image processing
   - Image Process (PDG) - process images in COPs
   - COP Processor (PDG) - lets you add your own image processing. Dive inside this node and add any COP nodes between Input and Output. Your image will be processed and rendered.
