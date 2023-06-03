@@ -3,6 +3,7 @@ import signal
 import subprocess
 import platform
 import sth_settings
+import hou
 
 kohya_dir = sth_settings.GetConfigValue('Training', 'kohya_folder')
 process = None
@@ -55,7 +56,7 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
     print('--------------------------------------')
     # Starting Kohya
     process = subprocess.Popen(f'{activate_script}  && {command}', shell=True, encoding="utf-8", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1, errors='ignore')
-
+    hou.ui.setStatusMessage('Training started')
     while True:
         realtime_output = process.stdout.readline()
         if stop:
@@ -63,8 +64,12 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
             break
         if realtime_output == '' and process.poll() is not None:
             break
-        if realtime_output:
-            print(realtime_output.strip(), flush=False)
+        if realtime_output.strip():
+            if realtime_output.strip().startswith("steps:") or realtime_output.strip()[1].isdigit():
+                hou.ui.setStatusMessage(realtime_output.strip())
+            else:
+                print(realtime_output.strip(), flush=False)
+    hou.ui.setStatusMessage('Finished')
 
 def Interrupt():
     global process

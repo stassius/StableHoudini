@@ -61,7 +61,16 @@
             "type" : "int",
             "default" : 4,
             "range" : [4, 128],
-            "help" : "Number of dimensions of Lora.",
+            "help" : "Number of dimensions.",
+            "group" : "Training"
+        },
+        {
+            "name" : "network_alpha",
+            "displayName" : "Network Alpha",
+            "type" : "int",
+            "default" : 1,
+            "range" : [1, 128],
+            "help" : "Alpha for Lora weight scaling.",
             "group" : "Training"
         },
         {
