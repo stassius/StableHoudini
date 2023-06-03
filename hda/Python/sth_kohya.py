@@ -54,7 +54,7 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
     print(command)
     print('--------------------------------------')
     # Starting Kohya
-    process = subprocess.Popen(f'{activate_script}  && {command}', shell=True, encoding="utf-8", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1)
+    process = subprocess.Popen(f'{activate_script}  && {command}', shell=True, encoding="utf-8", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1, errors='ignore')
 
     while True:
         realtime_output = process.stdout.readline()
