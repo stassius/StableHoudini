@@ -44,7 +44,7 @@ def GetJSON(path):
             result = None    
         return result
     
-def FillUI(node, targetFolderName, parms, additionalFolders = None):
+def FillUI(node, targetFolderName, parms, groups, additionalFolders = None):
     """
     Given a node, this function fills in a specified UI folder with new parameters. 
     The function takes in the node, the target folder name, a list of parameter dictionaries, 
@@ -90,8 +90,17 @@ def FillUI(node, targetFolderName, parms, additionalFolders = None):
         else:
             folder.addParmTemplate(newParm)
         allParms.append(parm['name'])
-    for fld in list(folders):
+        
+    if groups:
+        sorted = groups
+    else:
+        sorted = folders
+    for fld in list(sorted):
+        print(f"Adding {fld} folder")
         folder.addParmTemplate(parmFolders[fld])
+    for fld in list(set(folders) - set(sorted)):
+        folder.addParmTemplate(parmFolders[fld])
+        
     # Add additional folders
     if additionalFolders:
         for fld in additionalFolders:

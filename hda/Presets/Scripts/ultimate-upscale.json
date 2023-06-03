@@ -3,6 +3,7 @@
     "script_info" : "Only works in Image2image mode. Use it with the Tile ControlNet to upscale images on a low-end GPU.",
     "url" : "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111",
     "expects_info_parameter" : true,
+    "groups" : ["General", "Seams fix", "Target size"],
     "parms" : [
         {
         "name" : "tile_width",

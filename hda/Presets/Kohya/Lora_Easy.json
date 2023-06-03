@@ -2,6 +2,7 @@
     "name" : "Lora - Easy",
     "description" : "Parameters for Lora training",
     "script_file" : "train_network.py",
+    "groups" : ["Files", "Model", "Training", "Save", "Images", "Optimization"],
     "parms" :
     [
         {
