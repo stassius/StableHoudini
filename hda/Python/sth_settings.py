@@ -62,7 +62,10 @@ def WriteDefaulConfig(filename):
         'useauth' : False,
         'username' : '',
         'password' : ''
-    }
+        }
+    config['Training'] = {
+        'kohya_folder' : ''
+        }
     Path(os.path.dirname(filename)).mkdir(parents=True, exist_ok=True)
     print("Writing default config to "+filename)
     with open(filename, 'w') as file:
