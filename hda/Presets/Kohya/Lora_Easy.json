@@ -57,6 +57,7 @@
         },
         {
             "name" : "network_dim",
+            "displayName" : "Network rank",
             "type" : "int",
             "default" : 4,
             "range" : [4, 128],
