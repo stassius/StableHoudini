@@ -15,7 +15,7 @@ if not kohya_dir:
     sth_settings.SetConfigValue('Training', 'kohya_folder', 'C:/kohya_ss/')
 
 
-def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
+def CallKohya(script_name, source_folder, num_cpus, parms):
     global process
     global kohya_dir
     global stop
@@ -43,7 +43,6 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
             command += " --" + key + "=" + str(value)
         
     command += f" --train_data_dir={source_folder}"
-    command += f' --network_module={network_module}'
     # Activate venv
     if platform.system() == 'Windows':
         activate_script = f'{venv}/Scripts/activate.bat'
@@ -65,7 +64,7 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
         if realtime_output == '' and process.poll() is not None:
             break
         if realtime_output.strip():
-            if realtime_output.strip().startswith("steps:") or realtime_output.strip()[1].isdigit():
+            if '%|' in realtime_output.strip():
                 hou.ui.setStatusMessage(realtime_output.strip())
             else:
                 print(realtime_output.strip(), flush=False)
@@ -73,7 +72,5 @@ def CallKohya(script_name, source_folder, network_module, num_cpus, parms):
 
 def Interrupt():
     global process
-    process.kill()
     stop = True
-    print("Process interrupted")
     process = None

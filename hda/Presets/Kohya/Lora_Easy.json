@@ -26,14 +26,6 @@
             "group" : "Model"
         },
         {
-            "name" : "pretrained_model_name_or_path",
-            "type" : "stringMenu",
-            "default" : "runwayml/stable-diffusion-v1-5",
-            "values" : ["stabilityai/stable-diffusion-2-1-base", "stabilityai/stable-diffusion-2-base", "stabilityai/stable-diffusion-2-1", "stabilityai/stable-diffusion-2", "runwayml/stable-diffusion-v1-5"],
-            "help" : "pretrained model to train, directory to Diffusers model or StableDiffusion checkpoint",
-            "group" : "Model"
-        },
-        {
             "name" : "save_model_as",
             "type" : "stringMenu",
             "default" : "safetensors",
@@ -116,6 +108,13 @@
             "default" : "",
             "help" : "Saved state to resume training",
             "group" : "Files"
+        },
+        {
+            "name" : "network_module",
+            "type" : "string",
+            "default" : "networks.lora",
+            "help" : "Module",
+            "hidden" : true
         },
         {
             "name" : "train_batch_size",
