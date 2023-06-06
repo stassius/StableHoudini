@@ -2,7 +2,7 @@
     "name" : "Lora - Easy",
     "description" : "Parameters for Lora training",
     "script_file" : "train_network.py",
-    "groups" : ["Files", "Model", "Training", "Save", "Images", "Optimization"],
+    "groups" : ["Files", "Model", "Training", "Images", "Optimization"],
     "parms" :
     [
         {
@@ -34,12 +34,13 @@
             "group" : "Model"
         },
         {
-            "name" : "max_train_steps",
+            "name" : "max_train_epochs",
+            "displayName" : "Max training epochs",
             "type" : "int",
-            "default" : 1600,
-            "range" : [100, 2000],
-            "group" : "Training",
-            "help" : "training steps"
+            "default" : 1,
+            "range" : [1, 10],
+            "help" : "Training epochs (overrides max_train_steps)",
+            "group" : "Training"
         },
         {
             "name" : "learning_rate",
@@ -49,10 +50,35 @@
             "group" : "Training"
         },
         {
+            "name" : "text_encoder_lr",
+            "displayName" : "Text encoder learning rate",
+            "type" : "float",
+            "default" : 0.00005,
+            "help" : "Should be half of learning rate or higher.",
+            "group" : "Training"
+        },
+        {
+            "name" : "network_weights",
+            "displayName" : "Existing LoRA to resume training from",
+            "type" : "file",
+            "filemask" : ".ckpt, .safetensors, .pt",
+            "default" : "",
+            "help" : "Existing network weights.",
+            "group" : "Files"
+        },
+        {
+            "name" : "dim_from_weights",
+            "displayName" : "Use the dimensions (Rank) from the existing LoRA",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Use it only with the Existing LoRA parameter.",
+            "group" : "Files"
+        },
+        {
             "name" : "network_dim",
             "displayName" : "Network rank",
             "type" : "int",
-            "default" : 4,
+            "default" : 64,
             "range" : [4, 128],
             "help" : "Number of dimensions.",
             "group" : "Training"
@@ -61,24 +87,10 @@
             "name" : "network_alpha",
             "displayName" : "Network Alpha",
             "type" : "int",
-            "default" : 1,
+            "default" : 32,
             "range" : [1, 128],
             "help" : "Alpha for Lora weight scaling.",
             "group" : "Training"
-        },
-        {
-            "name" : "output_dir",
-            "type" : "directory",
-            "default" : "$HIP/Trained/Loras/",
-            "help" : "Directory to output trained model",
-            "group" : "Files"
-        },
-        {
-            "name" : "output_name",
-            "type" : "string",
-            "default" : "lora",
-            "help" : "Base name of trained model file",
-            "group" : "Files"
         },
         {
             "name" : "save_precision",
@@ -86,27 +98,13 @@
             "default" : "fp16",
             "values" : ["float", "fp16", "bf16"],
             "help" : "Precision in saved files.",
-            "group" : "Save"
+            "group" : "Files"
         },
         {
             "name" : "save_every_n_epochs",
             "type" : "int",
             "default" : 1,
             "help" : "Save checkpoint every N epochs",
-            "group" : "Save"
-        },
-        {
-            "name" : "save_state",
-            "type" : "bool",
-            "default" : false,
-            "help" : "Save training state additionally (including optimizer states etc.)",
-            "group" : "Save"
-        },
-        {
-            "name" : "resume",
-            "type" : "string",
-            "default" : "",
-            "help" : "Saved state to resume training",
             "group" : "Files"
         },
         {

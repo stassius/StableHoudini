@@ -4,9 +4,17 @@ import subprocess
 import platform
 import sth_settings
 import hou
+import psutil
+
+def kill_proc_tree(pid, including_parent=True):  
+    parent = psutil.Process(pid)
+    children = parent.children(recursive=True)
+    for child in children:
+        child.kill()
+    if including_parent:
+        parent.kill()
 
 kohya_dir = sth_settings.GetConfigValue('Training', 'kohya_folder')
-process = None
 stop = False
 
 if not kohya_dir:
@@ -16,14 +24,9 @@ if not kohya_dir:
 
 
 def CallKohya(script_name, source_folder, num_cpus, parms):
-    global process
     global kohya_dir
     global stop
-    
-    if process:
-        print("Kohya is already running! Can't run another instance!")
-        return
-    
+        
     venv = os.path.join(kohya_dir, "venv")
     command = f'accelerate launch --num_cpu_threads_per_process {str(num_cpus)} ' + os.path.join(kohya_dir, script_name) 
     
@@ -58,8 +61,11 @@ def CallKohya(script_name, source_folder, num_cpus, parms):
     hou.ui.setStatusMessage('Training started')
     while True:
         realtime_output = process.stdout.readline()
+        return_code = process.returncode
         if stop:
             stop = False
+            kill_proc_tree(process.pid)
+            return_code = 100
             break
         if realtime_output == '' and process.poll() is not None:
             break
@@ -69,8 +75,8 @@ def CallKohya(script_name, source_folder, num_cpus, parms):
             else:
                 print(realtime_output.strip(), flush=False)
     hou.ui.setStatusMessage('Finished')
+    return return_code
 
 def Interrupt():
-    global process
+    global stop
     stop = True
-    process = None

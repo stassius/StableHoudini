@@ -96,7 +96,6 @@ def FillUI(node, targetFolderName, parms, groups, additionalFolders = None):
     else:
         sorted = folders
     for fld in list(sorted):
-        print(f"Adding {fld} folder")
         folder.addParmTemplate(parmFolders[fld])
     for fld in list(set(folders) - set(sorted)):
         folder.addParmTemplate(parmFolders[fld])
@@ -152,6 +151,9 @@ def CreateParm(name, displayName, parmType, default, range = None, help = None, 
         
     elif parmType == "directory":
         newParm = hou.StringParmTemplate(name, displayName, 1, default_value=(default,), string_type = hou.stringParmType.FileReference, file_type = hou.fileType.Directory, help = help)
+    
+    elif parmType == "file":
+        newParm = hou.StringParmTemplate(name, displayName, 1, default_value=(default,), string_type = hou.stringParmType.FileReference, file_type = hou.fileType.Any, help = help)
         
     else:
         newParm = None
