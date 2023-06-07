@@ -12,20 +12,6 @@
             "hidden" : true
         },
         {
-            "name" : "v2", 
-            "displayName" : "Stable Diffusion v2+ model",
-            "type" : "bool",   
-            "help" : "Enable it for Stable Diffusion v2.0 model (base)",
-            "group" : "Files"
-        },
-        {
-            "name" : "v_parameterization", 
-            "displayName" : "V Parametrization for v2+ model",
-            "type" : "bool",
-            "help" : "Enable it for Stable Diffusion 2 or 2.1 model",
-            "group" : "Files"
-        },
-        {
             "name" : "save_model_as",
             "type" : "stringMenu",
             "default" : "safetensors",
@@ -99,6 +85,20 @@
             "type" : "int",
             "default" : 1,
             "help" : "Save checkpoint every N epochs",
+            "group" : "Files"
+        },
+        {
+            "name" : "v2", 
+            "displayName" : "Stable Diffusion v2+ model",
+            "type" : "bool",   
+            "help" : "Enable it for Stable Diffusion v2.0 model (base)",
+            "group" : "Files"
+        },
+        {
+            "name" : "v_parameterization", 
+            "displayName" : "V Parametrization for v2+ model",
+            "type" : "bool",
+            "help" : "Enable it for Stable Diffusion 2 or 2.1 model",
             "group" : "Files"
         },
         {
@@ -215,29 +215,6 @@
         },
         {
             "group": "Images",
-            "name": "color_aug",
-            "displayName" : "Color augmentation",
-            "type": "bool",
-            "default": false,
-            "help": "Enable weak color augmentation"
-        },
-        {
-            "group": "Images",
-            "name": "flip_aug",
-            "displayName" : "Horizontal flip augmentation",
-            "type": "bool",
-            "default": false,
-            "help": "Enable horizontal flip augmentation"
-        },
-        {
-            "group": "Images",
-            "name": "random_crop",
-            "type": "bool",
-            "default": false,
-            "help": "Enable random crop (for style training in face-centered crop augmentation)"
-        },
-        {
-            "group": "Images",
             "name": "resolution",
             "displayName" : "Training resolution",
             "type": "string",
@@ -249,14 +226,14 @@
             "name": "cache_latents",
             "type": "bool",
             "default": true,
-            "help": "Cache latents to main memory to reduce VRAM usage (augmentations must be disabled)"
+            "help": "Cache latents to main memory to reduce VRAM usage."
         },
         {
             "group": "Optimization",
             "name": "cache_latents_to_disk",
             "type": "bool",
             "default": false,
-            "help": "Cache latents to disk to reduce VRAM usage (augmentations must be disabled)"
+            "help": "Cache latents to disk to reduce VRAM usage."
         },
         {
             "group": "Images",
