@@ -67,6 +67,7 @@ In localscheduler node:
   - Refresh Viewport Textures (PDG) - resets a cache for viewport textures
 - Training
   - SD Dataset Preparation (PDG) - prepares a dataset for further training. It copies all the images into a particular folder, crops and resizes them, adds text captions.
+  - SD Trainer Kohya (PDG). Lets you train LoRAs right from the Houdini's TOPs. It's a connector for the most powerful set of training scripts for Stable Diffusion called Kohya_ss.
   
 ### Documentation
 Our wiki is full of valuable information:
