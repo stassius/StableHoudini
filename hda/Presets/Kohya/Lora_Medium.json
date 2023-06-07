@@ -1,8 +1,8 @@
 {
-    "name" : "Lora - Easy",
+    "name" : "Lora - Medium",
     "description" : "Parameters for Lora training",
     "script_file" : "train_network.py",
-    "groups" : ["Files",  "Training", "Images", "Optimization"],
+    "groups" : ["Files", "Model", "Training", "LR Scheduler", "Images", "Optimization"],
     "parms" :
     [
         {
@@ -16,23 +16,22 @@
             "displayName" : "Stable Diffusion v2+ model",
             "type" : "bool",   
             "help" : "Enable it for Stable Diffusion v2.0 model (base)",
-            "group" : "Files"
+            "group" : "Model"
         },
         {
             "name" : "v_parameterization", 
             "displayName" : "V Parametrization for v2+ model",
             "type" : "bool",
             "help" : "Enable it for Stable Diffusion 2 or 2.1 model",
-            "group" : "Files"
+            "group" : "Model"
         },
         {
             "name" : "save_model_as",
             "type" : "stringMenu",
             "default" : "safetensors",
-            "hidden" : true,
             "values" : ["ckpt", "pt", "safetensors"],
             "help" : "format to save the model (default is .safetensors)",
-            "group" : "Files"
+            "group" : "Model"
         },
         {
             "name" : "max_train_epochs",
@@ -56,7 +55,6 @@
             "type" : "float",
             "default" : 0.0001,
             "help" : "Learning rate",
-            "hidden" : true,
             "group" : "Training"
         },
         {
@@ -64,15 +62,60 @@
             "displayName" : "Text encoder learning rate",
             "type" : "float",
             "default" : 0.00005,
-            "hidden" : true,
             "help" : "Should be half of learning rate or higher.",
             "group" : "Training"
+        },
+        {
+            "name" : "lr_scheduler",
+            "type" : "stringMenu",
+            "default" : "constant",
+            "values" : ["linear", "cosine", "cosine_with_restarts", "polynomial", "constant", "constant_with_warmup"],
+            "help" : "scheduler to use for learning rate",
+            "group" : "LR Scheduler"
+        },
+        {
+            "name" : "lr_warmup_steps",
+            "type" : "int",
+            "default" : 0,
+            "help" : "Number of steps for the warmup in the lr scheduler (default is 0)",
+            "group" : "LR Scheduler"
+        },
+        {
+            "name" : "lr_scheduler_num_cycles",
+            "type" : "int",
+            "default" : 1,
+            "help" : "Number of restarts for cosine scheduler with restarts / cosine with restarts",
+            "group" : "LR Scheduler"
+        },
+        {
+            "name" : "lr_scheduler_power",
+            "type" : "float",
+            "default" : 1,
+            "help" : "Polynomial power for polynomial scheduler",
+            "group" : "LR Scheduler"
+        },
+        {
+            "name" : "network_weights",
+            "displayName" : "Existing LoRA to resume training from",
+            "type" : "file",
+            "filemask" : ".ckpt, .safetensors, .pt",
+            "default" : "",
+            "help" : "Existing network weights.",
+            "group" : "Files"
+        },
+        {
+            "name" : "dim_from_weights",
+            "displayName" : "Use the dimensions (Rank) from the existing LoRA",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Use it only with the Existing LoRA parameter.",
+            "group" : "Files"
         },
         {
             "name" : "network_dim",
             "displayName" : "Network rank",
             "type" : "int",
-            "default" : 128,
+            "default" : 64,
             "range" : [4, 128],
             "help" : "Number of dimensions.",
             "group" : "Training"
@@ -81,7 +124,7 @@
             "name" : "network_alpha",
             "displayName" : "Network Alpha",
             "type" : "int",
-            "default" : 128,
+            "default" : 32,
             "range" : [1, 128],
             "help" : "Alpha for Lora weight scaling.",
             "group" : "Training"
@@ -144,6 +187,14 @@
             "default" : "fp16",
             "values" : ["no", "fp16", "bf16"],
             "help" : "Use mixed precision",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "full_fp16",
+            "displayName" : "Training with fp16 gradient (experimental feature)",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Fp16 training including gradients, reduces VRAM usage.",
             "group" : "Optimization"
         },
         {
@@ -210,7 +261,6 @@
             "type": "string",
             "default": ".txt",
             "help": "Extension of caption files",
-            "hidden" : true,
             "group" : "Files"
         },
         {
@@ -298,10 +348,17 @@
             "help": "Make bucket for each image without upscaling"
         },
         {
+            "group": "Files",
+            "name": "reg_data_dir",
+            "displayName" : "Regularization images directory",
+            "type": "directory",
+            "default": "",
+            "help": "Directory for regularization images"
+        },
+        {
             "name" : "max_data_loader_n_workers",
             "type" : "int",
             "default" : 1,
-            "hidden" : true,
             "help" : "Max num workers for DataLoader (lower is less main RAM usage, faster epoch start and slower data loading)",
             "group" : "Optimization"
         }
