@@ -29,6 +29,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 10. Bulk ControlNet preprocessing
 11. Work on a remote server with http authorization
 12. Use A1111 scripts like Ultimate SD Upscale right from Houdini
+13. Prepare datasets and train your own LoRAs right from Houdini using Kohya_ss connector
 
 ### Installation
 1. Install Automatic1111
@@ -37,6 +38,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 4. Install asset libraries from /hda/ and use assets inside Houdini
 5. Make sure the Python and Presets folders are located next to the top_stable_diffusion.hda file
 6. After the first time you created an SD node, /hda/Config/config.ini file will be created. In it you can change the default URL and also turn on http authorization for remote server if you use it. Also, if you work locally, put 0.15 to the Timeout property, it will speed up starting a project when Automatic is not loaded. Restart Houdini for changes to take effect.
+7. (Optional) Install Kohya_ss webui for training and add the installation directory to config.ini
 
 If you got problems running Stable Houdini, there is a troubleshooting guide: https://github.com/stassius/StableHoudini/wiki/Troubleshooting-checklist
 
