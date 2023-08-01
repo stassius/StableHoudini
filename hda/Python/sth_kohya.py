@@ -5,14 +5,17 @@ import platform
 import sth_settings
 import hou
 import psutil
+import sys
 
-def kill_proc_tree(pid, including_parent=True):  
+
+def kill_proc_tree(pid, including_parent=True):
     parent = psutil.Process(pid)
     children = parent.children(recursive=True)
     for child in children:
         child.kill()
     if including_parent:
         parent.kill()
+
 
 kohya_dir = sth_settings.GetConfigValue('Training', 'kohya_folder')
 stop = False
@@ -26,10 +29,18 @@ if not kohya_dir:
 def CallKohya(script_name, source_folder, num_cpus, parms):
     global kohya_dir
     global stop
-        
+
     venv = os.path.join(kohya_dir, "venv")
-    command = f'accelerate launch --num_cpu_threads_per_process {str(num_cpus)} ' + os.path.join(kohya_dir, script_name) 
-    
+    # Activate venv
+    if platform.system() == 'Windows':
+        activate_script = f'{venv}/Scripts/activate.bat'
+        accelerate_path = os.path.join(venv, "Scripts/accelerate")
+    else:
+        activate_script = f'source {venv}/bin/activate'
+        accelerate_path = os.path.join(venv, "bin/accelerate")
+    command = f'{accelerate_path} launch --num_cpu_threads_per_process {str(num_cpus)} ' + os.path.join(
+        kohya_dir, script_name)
+
     # Parse arguments
     for key in parms:
         value = parms[key]
@@ -44,20 +55,18 @@ def CallKohya(script_name, source_folder, num_cpus, parms):
             continue
         else:
             command += " --" + key + "=" + str(value)
-        
+
     command += f" --train_data_dir={source_folder}"
-    # Activate venv
-    if platform.system() == 'Windows':
-        activate_script = f'{venv}/Scripts/activate.bat'
-    else:
-        activate_script = f'source {venv}/bin/activate'
-    os.environ['PYTHONIOENCODING'] =  'utf-8'
+
+    os.environ['PYTHONIOENCODING'] = 'utf-8'
     print("Starting Kohya_ss with next arguments:")
     print('--------------------------------------')
     print(command)
     print('--------------------------------------')
     # Starting Kohya
-    process = subprocess.Popen(f'{activate_script}  && {command}', shell=True, encoding="utf-8", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1, errors='ignore')
+    # check_path = 'python -c "import sys; print(sys.path)"'
+    process = subprocess.Popen(f'{activate_script}  && {command}', shell=True, encoding="utf-8",
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, bufsize=1, errors='ignore')
     hou.ui.setStatusMessage('Training started')
     while True:
         realtime_output = process.stdout.readline()
@@ -76,6 +85,7 @@ def CallKohya(script_name, source_folder, num_cpus, parms):
                 print(realtime_output.strip(), flush=False)
     hou.ui.setStatusMessage('Finished')
     return return_code
+
 
 def Interrupt():
     global stop

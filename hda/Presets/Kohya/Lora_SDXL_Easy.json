@@ -1,0 +1,322 @@
+{
+    "name" : "Lora - SDXL - Easy",
+    "description" : "Parameters for Lora training",
+    "script_file" : "sdxl_train_network.py",
+    "groups" : ["Files",  "Training", "Images", "Optimization"],
+    "parms" :
+    [
+        {
+            "name" : "logging_dir",
+            "type" : "string",
+            "default" : "",
+            "hidden" : true
+        },
+        {
+            "name" : "network_train_unet_only",
+            "type" : "bool",
+            "default" : true,
+            "hidden" : true
+        },
+        {
+            "name" : "save_model_as",
+            "type" : "stringMenu",
+            "default" : "safetensors",
+            "hidden" : true,
+            "values" : ["ckpt", "pt", "safetensors"],
+            "help" : "format to save the model (default is .safetensors)",
+            "group" : "Files"
+        },
+        {
+            "name" : "max_train_epochs",
+            "displayName" : "Max training epochs",
+            "type" : "int",
+            "default" : 1,
+            "range" : [1, 10],
+            "help" : "Training epochs (overrides max_train_steps)",
+            "group" : "Training"
+        },
+        {
+            "name" : "train_batch_size",
+            "type" : "int",
+            "default" : 1,
+            "range" : [1, 16],
+            "help" : "Batch size for training. Increases VRAM usage.",
+            "group" : "Training"
+        },
+        {
+            "name" : "learning_rate",
+            "type" : "float",
+            "default" : 0.0001,
+            "help" : "Learning rate",
+            "hidden" : true,
+            "group" : "Training"
+        },
+        {
+            "name" : "text_encoder_lr",
+            "displayName" : "Text encoder learning rate",
+            "type" : "float",
+            "default" : 0.00005,
+            "hidden" : true,
+            "help" : "Should be half of learning rate or higher.",
+            "group" : "Training"
+        },
+        {
+            "name" : "network_dim",
+            "displayName" : "Network rank",
+            "type" : "int",
+            "default" : 128,
+            "range" : [4, 128],
+            "help" : "Number of dimensions.",
+            "group" : "Training"
+        },
+        {
+            "name" : "network_alpha",
+            "displayName" : "Network Alpha",
+            "type" : "int",
+            "default" : 128,
+            "range" : [1, 128],
+            "help" : "Alpha for Lora weight scaling.",
+            "group" : "Training"
+        },
+        {
+            "name" : "save_precision",
+            "type" : "stringMenu",
+            "default" : "fp16",
+            "values" : ["float", "fp16", "bf16"],
+            "help" : "Precision in saved files.",
+            "group" : "Files"
+        },
+        {
+            "name" : "save_every_n_epochs",
+            "type" : "int",
+            "default" : 1,
+            "help" : "Save checkpoint every N epochs",
+            "group" : "Files"
+        },
+        {
+            "name" : "v2", 
+            "displayName" : "Stable Diffusion v2+ model",
+            "type" : "bool",
+            "default": false,
+            "hidden" : true,       
+            "help" : "Enable it for Stable Diffusion v2.0 model (base)",
+            "group" : "Files"
+        },
+        {
+            "name" : "v_parameterization", 
+            "displayName" : "V Parametrization for v2+ model",
+            "type" : "bool",
+            "default": false,
+            "hidden" : true, 
+            "help" : "Enable it for Stable Diffusion 2 or 2.1 model",
+            "group" : "Files"
+        },
+        {
+            "name" : "network_module",
+            "type" : "string",
+            "default" : "networks.lora",
+            "help" : "Module",
+            "hidden" : true
+        },
+        {
+            "name" : "mem_eff_attn",
+            "displayName" : "Memory effective attention",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Use memory efficient attention for CrossAttention (when no xformers)",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "xformers",
+            "type" : "bool",
+            "default" : true,
+            "help" : "Use xformers for Cross Attention",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "optimizer_type",
+            "type" : "stringMenu",  
+            "default" :"AdaFactor",
+            "hidden": true,
+            "values" : [" ", "AdamW", "AdamW8bit", "Lion8bit", "Lion", "SGDNesterov", "SGDNesterov8bit", "DAdaptation", "DAdaptAdaGrad", "DAdaptAdam", "DAdaptAdan", "DAdaptAdanIP", "DAdaptLion", "DAdaptSGD", "AdaFactor"],
+            "help" : "Optimizer to use",
+            "group" : "Training"
+        },
+        {
+            "name" : "use_8bit_adam",
+            "type" : "bool",
+            "default" : false,
+            "hidden" : true,
+            "help" : "Use 8 bit Adam for training",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "cache_text_encoder_outputs",
+            "name" : "cache_text_encoder_outputs",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Cache the outputs of the text encoders. This option is useful to reduce the GPU memory usage. This option cannot be used with options for shuffling or dropping the captions.",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "cache_text_encoder_outputs_to_disk",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Cache the outputs of the text encoders. This option is useful to reduce the GPU memory usage. This option cannot be used with options for shuffling or dropping the captions.",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "no_half_vae",
+            "type" : "bool",
+            "default" : true,
+            "help" : "Disable the half-precision (mixed-precision) VAE. VAE for SDXL seems to produce NaNs in some cases. This option is useful to avoid the NaNs.",
+            "group" : "Training"
+        },
+        {
+            "name" : "seed",
+            "type" : "int",
+            "default" : 42,
+            "range" : [0, 65535],
+            "help" : "Random seed for training",
+            "group" : "Training"
+        },
+        {
+            "name" : "mixed_precision",
+            "type" : "stringMenu",
+            "default" : "fp16",
+            "values" : ["no", "fp16", "bf16"],
+            "help" : "Use mixed precision",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "lowram",
+            "displayName" : "Low RAM",
+            "type" : "bool",
+            "default" : false,
+            "help" : "Enable low RAM optimization. e.g. load models to VRAM instead of RAM (for machines which have bigger VRAM than RAM such as Colab and Kaggle)",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "gradient_checkpointing",
+            "type" : "bool",
+            "default" : false,
+            "help" : "When on reduces VRAM usage but slows the speed.",
+            "group" : "Optimization"
+        },
+        {
+            "name" : "sample_every_n_steps",
+            "type" : "int",
+            "default" : 0,
+            "hidden" : true,
+            "help" : "Generate sample images every N steps"
+        },
+        {
+            "name" : "sample_every_n_epochs",
+            "type" : "int",
+            "default" : 0,
+            "hidden" : true,
+            "help": "Generate sample images every N epochs (overwrites n_steps)"
+        },
+        {
+            "name" : "sample_prompts",
+            "type" : "string",
+            "default" : "",
+            "hidden" : true,
+            "help" : "File for prompts to generate sample images"
+        },
+        {
+            "name" : "sample_sampler",
+            "type" : "stringMenu",
+            "default" : " ",
+            "hidden" : true,
+            "values" :[" ","ddim", "pndm", "lms", "euler", "euler_a", "heun", "dpm_2", "dpm_2_a", "dpmsolver", "dpmsolver++", "dpmsingle", "k_lms", "k_euler", "k_euler_a", "k_dpm_2", "k_dpm_2_a"],
+            "help" : "Sampler (scheduler) type for sample images"
+        },
+        {
+            "name" : "prior_loss_weight",
+            "type" : "float",
+            "default" : 1.0,
+            "hidden" : true,
+            "help" : "Loss weight for regularization images",
+            "group" : "Training"
+        },
+        {
+            "name": "caption_extension",
+            "type": "string",
+            "default": ".txt",
+            "help": "Extension of caption files",
+            "hidden" : true,
+            "group" : "Files"
+        },
+        {
+            "group": "Images",
+            "name": "resolution",
+            "displayName" : "Training resolution",
+            "type": "string",
+            "default": "1024,1024",
+            "help": "Resolution for training ('size' or 'width,height'). Must be divisible by 64"
+        },
+        {
+            "group": "Optimization",
+            "name": "cache_latents",
+            "type": "bool",
+            "default": true,
+            "help": "Cache latents to main memory to reduce VRAM usage."
+        },
+        {
+            "group": "Optimization",
+            "name": "cache_latents_to_disk",
+            "type": "bool",
+            "default": false,
+            "help": "Cache latents to disk to reduce VRAM usage."
+        },
+        {
+            "group": "Images",
+            "name": "enable_bucket",
+            "displayName" : "Enable aspect ratio bucketing",
+            "type": "bool",
+            "default": false,
+            "help": "Enable buckets for multi aspect ratio training"
+        },
+        {
+            "group": "Images",
+            "name": "min_bucket_reso",
+            "type": "int",
+            "default": 256,
+            "range" : [128, 1024],
+            "help": "Minimum resolution for buckets"
+        },
+        {
+            "group": "Images",
+            "name": "max_bucket_reso",
+            "type": "int",
+            "default": 1024,
+            "range" : [128, 1024],
+            "help": "Maximum resolution for buckets"
+        },
+        {
+            "group": "Images",
+            "name": "bucket_reso_steps",
+            "type": "int",
+            "default": 64,
+            "range" : [32, 128],
+            "help": "Steps of resolution for buckets, divisible by 8 is recommended"
+        },
+        {
+            "group": "Images",
+            "name": "bucket_no_upscale",
+            "type": "bool",
+            "default": false,
+            "help": "Make bucket for each image without upscaling"
+        },
+        {
+            "name" : "max_data_loader_n_workers",
+            "type" : "int",
+            "default" : 1,
+            "hidden" : true,
+            "help" : "Max num workers for DataLoader (lower is less main RAM usage, faster epoch start and slower data loading)",
+            "group" : "Optimization"
+        }
+    ]
+} 
+    
