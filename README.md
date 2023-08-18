@@ -2,7 +2,7 @@
 
 Works with Houdini 19.5 with Python 3.9.
 
-*Tested with Automatic1111 and ControlNet version as of 07.08.2023 (august 2023).*
+*Tested with Automatic1111 and ControlNet version as of 18.08.2023 (august 2023).*
 
 Developed by Stanislav Demchenko (stassius) for EVR Systems.
 
@@ -19,7 +19,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 
 ### Features:
 1. Automatic1111 in Houdini
-2. All main A1111 features, including TI, Loras, Hypernetworks, face restoration, tiling, hires fix
+2. All main A1111 features, including TI, Loras, Hypernetworks, face restoration, tiling, hires fix. Use any checkpoint or LoRA from civitai.com. SD XL included.
 4. ControlNet 1.1, whole set of preprocessors and models
 5. Animateable Image2Image alternative test
 6. Upscale
@@ -29,7 +29,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 10. Bulk ControlNet preprocessing
 11. Work on a remote server with http authorization
 12. Use A1111 scripts like Ultimate SD Upscale right from Houdini
-13. Prepare datasets and train your own LoRAs right from Houdini using Kohya_ss connector
+13. Prepare datasets and train your own LoRAs right from Houdini using Kohya_ss connector. SD XL training profile inculded.
 
 ### Installation
 1. Install Automatic1111
