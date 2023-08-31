@@ -37,6 +37,10 @@ listConfig = {
                 'url': '/controlnet/module_list', 
                 'jsonitem' : 'module_list',
                 'jsonname' : ''},
+    'vaes': { 
+                'url': '/sdapi/v1/sd-vae', 
+                'jsonitem' : '',
+                'jsonname' : 'model_name'},
 }
 
 availableItems = {
@@ -48,6 +52,7 @@ availableItems = {
     'loras' : [],
     'cn_models' : [],
     'cn_preprocessors' : [],
+    'vaes' : [],
 }
 
 config = configparser.ConfigParser()
