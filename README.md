@@ -29,7 +29,7 @@ Professional set of Houdini digital assets for Stable Diffusion image processing
 10. Bulk ControlNet preprocessing
 11. Work on a remote server with http authorization
 12. Use A1111 scripts like Ultimate SD Upscale right from Houdini
-13. Prepare datasets and train your own LoRAs right from Houdini using Kohya_ss connector. SD XL training profile inculded.
+13. Prepare datasets and train your own LoRAs right from Houdini using Kohya_ss connector. SD XL training profile included.
 
 ### Installation
 1. Install Automatic1111
