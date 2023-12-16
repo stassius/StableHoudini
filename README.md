@@ -1,6 +1,6 @@
 # Stable Diffusion Houdini Toolset
 
-Works with Houdini 19.5 with Python 3.9.
+Works with Houdini 19.5 and 20 with Python 3.9. 
 
 *Tested with Automatic1111 and ControlNet version as of 5.12.2023 (december 2023).*
 
