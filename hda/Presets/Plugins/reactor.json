@@ -1,0 +1,34 @@
+{
+    "plugin_name" : "Reactor",
+    "plugin_info" : "Fast face swapper. Install Reactor extension first.",
+    "url" : "https://github.com/Gourieff/sd-webui-reactor",
+    "endpoint": "/reactor/image",
+    "response_name" : "image",
+    "parms" : [
+        {
+        "name" : "source_image",
+        "displayName" : "Source Image",
+        "type" : "image",
+        "default" : "",
+        "group" : "Input",
+        "hidden" : false
+        },
+        {
+        "name" : "target_image",
+        "displayName" : "Target Image",
+        "type" : "image",
+        "default" : "",
+        "group" : "Input",
+        "hidden" : false
+        },
+        {
+        "name" : "face_restorer",
+        "displayName" : "Face Restorer",
+        "type" : "stringMenu",
+        "values" : ["None", "CodeFormer", "GFPGAN"],
+        "default" : "None",
+        "group" : "Input",
+        "hidden" : false
+        }
+    ]
+}

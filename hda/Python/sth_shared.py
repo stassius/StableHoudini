@@ -155,6 +155,9 @@ def CreateParm(name, displayName, parmType, default, range = None, help = None, 
     elif parmType == "file":
         newParm = hou.StringParmTemplate(name, displayName, 1, default_value=(default,), string_type = hou.stringParmType.FileReference, file_type = hou.fileType.Any, help = help)
         
+    elif parmType == "image":
+        newParm = hou.StringParmTemplate(name, displayName, 1, default_value=(default,), string_type = hou.stringParmType.FileReference, file_type = hou.fileType.Image, help = help)
+        
     else:
         newParm = None
         
